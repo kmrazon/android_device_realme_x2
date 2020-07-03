@@ -15,4 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_x2.mk
+    $(LOCAL_DIR)/zenx_x2.mk
+
+COMMON_LUNCH_CHOICES :=\
+      zenx_x2-userdebug \
+      zenx_x2-eng \
+      zenx_x2-user
