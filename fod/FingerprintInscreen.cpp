@@ -108,7 +108,7 @@ Return<void> FingerprintInscreen::onRelease() {
 Return<void> FingerprintInscreen::onShowFODView() {
     if(get(DOZE_STATUS, FP_ENDIT)) {
     set(NOTIFY_BLANK_PATH, FP_BEGIN);
-    set(AOD_MODE_PATH, FP_BEGIN);
+    set(AOD_MODE_PATH, FP_ENDIT);
     }
     return Void();
 }
