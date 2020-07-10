@@ -31,7 +31,7 @@
 #define DOZE_STATUS "/proc/touchpanel/DOZE_STATUS"
 #define X_POS 442
 #define Y_POS 1969
-#define FP_SIZE 196
+#define FP_SIZE 190
 #define FP_BEGIN 1
 #define FP_ENDIT 0
 
@@ -100,16 +100,17 @@ Return<void> FingerprintInscreen::onPress() {
 
 Return<void> FingerprintInscreen::onRelease() {
     mFingerPressed = false;
+    set(DIMLAYER_PATH, FP_BEGIN);
     set(FP_PRESS_PATH, FP_ENDIT);
-    set(DIMLAYER_PATH, FP_ENDIT);
+
     return Void();
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
-    if(get(DOZE_STATUS, FP_ENDIT)) {
-    set(NOTIFY_BLANK_PATH, FP_BEGIN);
-    set(AOD_MODE_PATH, FP_ENDIT);
-    }
+    this->mFodCircleVisible = true;
+    set(DIMLAYER_PATH, FP_BEGIN);
+    set(FP_PRESS_PATH, FP_ENDIT);
+
     return Void();
 }
 
